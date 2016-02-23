@@ -1,3 +1,5 @@
+import itertools
+
 class Node(object):
     def __init__(self, d, n=None):
         self.data = d
@@ -59,10 +61,45 @@ class LinkedList(object):
         return None
 
 
+a = []
+def flatten(a):
+    if not isinstance(a, (list, )):
+        return [a]
+    else:
+        b = []
+        for item in a:
+            if item == None:
+                item = [1,None]
+                return
+            flatten(item)
+            #b += flatten(item)
+    return b
+
+def add(i):
+    global a
+    if a == []:
+        a = i
+    else:
+        a[1] = i
+
+add([8,None])
+add([5,None])
+a[1][1] = [3,None]
+
+
+
+print(a)
+print(len(a))
+print (flatten(a))
+
+
+'''
 myList = LinkedList()
 myList.add(5)
 myList.add(8)
 myList.add(3)
 myList.add(1)
+'''
+
 
 
