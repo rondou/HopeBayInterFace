@@ -68,11 +68,7 @@ def flatten(a):
     else:
         b = []
         for item in a:
-            if item == None:
-                item = [1,None]
-                return
-            flatten(item)
-            #b += flatten(item)
+            b += flatten(item)
     return b
 
 def add(i):
@@ -80,18 +76,18 @@ def add(i):
     if a == []:
         a = i
     else:
-        a[1] = i
+        x = 'a'
+        b = len(flatten(a))
+        for _ in range(b-1):
+            x += '[1]'
+        x += (' = ' + str(i))
+        exec(x)
 
 add([8,None])
 add([5,None])
-a[1][1] = [3,None]
-
-
-
-print(a)
-print(len(a))
-print (flatten(a))
-
+add([3,None])
+add([1,None])
+print (a)
 
 '''
 myList = LinkedList()
